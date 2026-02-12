@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday My Love</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+margin:0;
+padding:0;
+background:black;
+color:white;
+font-family:Arial;
+text-align:center;
+overflow:hidden;
+}
+
+#startBtn{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+padding:20px 40px;
+font-size:24px;
+border:none;
+border-radius:50px;
+background:linear-gradient(45deg,#ff0080,#ffcc00);
+color:white;
+cursor:pointer;
+box-shadow:0 0 25px #ff0080;
+animation:glow 1.5s infinite alternate;
+z-index:10;
+}
+
+@keyframes glow{
+from{box-shadow:0 0 20px #ff0080;}
+to{box-shadow:0 0 40px #ffcc00;}
+}
+
+#content{
+display:none;
+padding:20px;
+}
+
+h1{
+font-size:35px;
+margin-top:20px;
+}
+
+.message{
+max-width:600px;
+margin:20px auto;
+font-size:18px;
+line-height:1.6;
+}
+
+.gallery img{
+width:120px;
+height:120px;
+margin:10px;
+border-radius:15px;
+box-shadow:0 0 15px pink;
+}
+
+.heart{
+position:absolute;
+top:-20px;
+font-size:20px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+to{transform:translateY(110vh);}
+}
+
+.firework{
+position:absolute;
+width:5px;
+height:5px;
+border-radius:50%;
+animation:explode 1s ease-out forwards;
+}
+
+@keyframes explode{
+to{
+transform:scale(15);
+opacity:0;
+}
+}
+</style>
+</head>
+<body>
+
+<!-- Music -->
+<audio id="music" loop>
+<source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+</audio>
+
+<button id="startBtn" onclick="startSurprise()">🎉 Happy Birthday 🎂</button>
+
+<div id="content">
+
+<h1>🎂 Happy Birthday My Beautiful Wife ❤️</h1>
+
+<div class="message">
+Happy Birthday, My Love 💖<br><br>
+You are my happiness, my best friend, and my forever 🥰  
+Your smile makes my world brighter 🌸  
+Thank you for always loving and supporting me 💕  
+On your special day, I promise to love you more every day ❤️  
+You are my Queen 👑💐  
+I Love You So Much 💖
+</div>
+
+<h1>🌸 Birthday Memories 🌸</h1>
+
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1529636798458-92182e662485">
+<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9">
+<img src="https://images.unsplash.com/photo-1532635241-17e820acc59f">
+<img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486">
+</div>
+
+</div>
+
+<script>
+
+function startSurprise(){
+document.getElementById("startBtn").style.display="none";
+document.getElementById("content").style.display="block";
+document.getElementById("music").play();
+startEffects();
+}
+
+function startEffects(){
+
+// Hearts
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML=["❤️","💖","🎉","🎈"][Math.floor(Math.random()*4)];
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(2+Math.random()*3)+"s";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),5000);
+},300);
+
+// Fireworks
+setInterval(()=>{
+let firework=document.createElement("div");
+firework.classList.add("firework");
+firework.style.top=Math.random()*80+"vh";
+firework.style.left=Math.random()*100+"vw";
+firework.style.background=["#ff0","#f0f","#0ff","#ff6600","#00ff00"][Math.floor(Math.random()*5)];
+document.body.appendChild(firework);
+setTimeout(()=>firework.remove(),1000);
+},500);
+
+}
+
+</script>
+
+</body>
+</html>
